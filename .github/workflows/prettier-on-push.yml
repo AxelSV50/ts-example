@@ -39,4 +39,5 @@ jobs:
         with:
           commit_message: Apply formating changes
           branch: ${{ github.head_ref }}
-
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }} # Usa el secreto que agregaste
