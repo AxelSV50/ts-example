@@ -1,4 +1,5 @@
-name: Prettier Format
+
+name: Lint and Format
 
 on:
   pull_request:
@@ -12,8 +13,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Para tener historial completo y evitar problemas de merge
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -23,24 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Prettier
-        run: npm run format
+      - name: Run ESLint
+        run: npm run lint
 
-      - name: Check for file changes
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            echo "Files were modified by Prettier";
-            git config user.name "GitHub Actions"
-            git config user.email "actions@github.com"
-            git add .
-            git commit -m "Format code with Prettier"
-          else
-            echo "No changes to commit"
-          fi
-
-      - name: Push changes
-        if: success() && steps.commit.outputs.committed == 'true'
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
