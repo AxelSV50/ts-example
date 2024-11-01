@@ -24,7 +24,7 @@ export const useApiHandler = () => {
 				const axiosError = e as AxiosError;
 				result = axiosError.response;
 				const error = result?.data as ErrorResponse;
-				if (error != null) {
+				if (error !== null) {
 					if (error.code === 40103) {
 						//	clearSession();
 					}
@@ -52,7 +52,7 @@ export const useApiHandler = () => {
 				const axiosError = e as AxiosError;
 				result = axiosError.response;
 				const error = result?.data as ErrorResponse;
-				if (error != null) {
+				if (error !== null) {
 					if (error.code === 40103) {
 						//	clearSession();
 					}

@@ -26,7 +26,7 @@ export default [
 			eqeqeq: ['error', 'always'], // Asegura el uso de === y !== en lugar de == y !=
 
 			// Deshabilitar el uso de console
-			'no-console': 'warn', // Muestra una advertencia si se usa console.log u otras funciones de consola
+			//'no-console': 'warn', // Muestra una advertencia si se usa console.log u otras funciones de consola
 
 			// Deshabilitar variables no utilizadas
 			'@typescript-eslint/no-unused-vars': ['error'], // Marca variables no utilizadas como errores
