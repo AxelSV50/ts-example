@@ -27,12 +27,33 @@ jobs:
       - name: Run Prettier
         run: npm run format
 
-      - name: Commit Prettier changes if needed
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git diff --quiet || git commit -m "chore: format code with Prettier"
-          git push
+name: Prettier Format
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint-and-format:
+    name: Prettier
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Run Prettier
+        run: npm run format
+
+      - name: Check for file changes
+        run: git status
+
+      - name: Commit and push changes
+        uses: mikeal/publish-to-github-action@master
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
