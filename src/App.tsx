@@ -10,9 +10,12 @@ function App() {
 		setName('');
 	};
 
+	if(true){
+		
+	}
 	return (
 		<div
-			style={{ alignContent: 'center', display: 'flex', flexFlow: 'column' }}
+			style={{ alignContent: "center", display: 'flex', flexFlow: 'column' }}
 		>
 			<form style={{ textAlign: 'center' }} onSubmit={e => addName(e)}>
 				<input
