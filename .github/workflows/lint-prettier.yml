@@ -27,28 +27,6 @@ jobs:
       - name: Run Prettier
         run: npm run format
 
-name: Prettier Format
-
-on:
-  pull_request:
-    branches:
-      - master
-
-jobs:
-  lint-and-format:
-    name: Prettier
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v1
-
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
-      - name: Run Prettier
-        run: npm run format
-
       - name: Check for file changes
         run: git status
 
