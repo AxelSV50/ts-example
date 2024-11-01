@@ -14,7 +14,7 @@ function App() {
 		<div
 			style={{ alignContent: "center", display: 'flex', flexFlow: 'column' }}
 		>
-			<form style={{ textAlign: 'center' }} onSubmit={e => addName(e)}>
+			<form style={{ textAlign: "center"}} onSubmit={e => addName(e)}>
 				<input
 					type='text'
 					value={name}
