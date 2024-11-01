@@ -1,4 +1,3 @@
-
 name: Prettier Format
 
 on:
@@ -6,23 +5,16 @@ on:
     branches:
       - master
 
-    
 jobs:
-  prettier-format:
+  lint-and-format:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-      statuses: write
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2
         with:
           node-version: '20.9.0'
 
@@ -31,13 +23,13 @@ jobs:
 
       - name: Run Prettier
         run: npm run format
-        
-      - run: git status
-      # commit any changed files
-      # https://github.com/mikeal/publish-to-github-action
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Apply formating changes
-          branch: ${{ github.head_ref }}
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Automated formatting" || echo "No changes to commit"
+          git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }} # Usa el secreto que agregaste
