@@ -5,11 +5,10 @@ on:
   push:
     branches:
       - master
-permissions:
-  contents: write
-  
+
+    
 jobs:
-  lint-and-format:
+  prettier-format:
     runs-on: ubuntu-latest
 
     steps:
