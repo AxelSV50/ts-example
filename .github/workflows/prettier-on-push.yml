@@ -11,12 +11,18 @@ jobs:
   prettier-format:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      statuses: write
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20.9.0'
 
@@ -29,6 +35,8 @@ jobs:
       - run: git status
       # commit any changed files
       # https://github.com/mikeal/publish-to-github-action
-      - uses: mikeal/publish-to-github-action@master
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Apply formating changes
+          branch: ${{ github.head_ref }}
+
