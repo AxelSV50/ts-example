@@ -10,9 +10,6 @@ function App() {
 		setName('');
 	};
 
-	if(true){
-		
-	}
 	return (
 		<div
 			style={{ alignContent: "center", display: 'flex', flexFlow: 'column' }}
