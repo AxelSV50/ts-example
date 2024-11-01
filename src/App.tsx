@@ -9,7 +9,7 @@ function App() {
 		setNames([...names, name]);
 		setName('');
 	};
-
+ 
 	return (
 		<div
 			style={{ alignContent: "center", display: "flex", flexFlow: 'column' }}
