@@ -9,9 +9,12 @@ function App() {
 		setNames([...names, name]);
 		setName('');
 	};
+	//Formateador de código
 
-	if(true){
-		
+	const test = 'Hola';
+
+	//Error en linter
+	if (1 == 1) {
 	}
 	return (
 		<div
