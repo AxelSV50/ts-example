@@ -19,7 +19,6 @@ export default [
 	},
 	{
 		rules: {
-			// ... any rules you want
 			'react/jsx-uses-react': 'error',
 			'react/jsx-uses-vars': 'error',
 			// Enforzar el uso de triple igual para comparaciones

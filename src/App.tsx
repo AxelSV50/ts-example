@@ -9,12 +9,18 @@ function App() {
 		setNames([...names, name]);
 		setName('');
 	};
- 
+	//Formateador de código
+
+	const test = 'Hola';
+
+	//Error en linter
+	if (1 == 1) {
+	}
 	return (
 		<div
-			style={{ alignContent: "center", display: "flex", flexFlow: 'column' }}
+			style={{ alignContent: 'center', display: 'flex', flexFlow: 'column' }}
 		>
-			<form style={{ textAlign: "center" }} onSubmit={e => addName(e)}>
+			<form style={{ textAlign: 'center' }} onSubmit={e => addName(e)}>
 				<input
 					type='text'
 					value={name}
