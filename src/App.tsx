@@ -15,7 +15,6 @@ function App() {
 
 	//Error en linter
 	if (1 == 1) {
-
 	}
 	return (
 		<div
